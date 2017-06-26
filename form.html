@@ -4,8 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>Search Form</title>
-        <script src="database.js"></script>
-        <script src="search.js"></script>
+
 
         <link rel="stylesheet" type="text/css" href="formStyle.css">
     </head>
@@ -14,10 +13,12 @@
             <div id="middle-wrapper">
                 <form>
                     <input id ="search-box" type="text" name="search-box" autofocus> 
-                    <input id="search-button" type="submit" onclick="search.js" name="search-buttom" value="Search"> 
+                    <input id="search-button" type="submit" onClick="getPageNumber()" name="search-button" value="Search"> 
                     <div id="results"></div>
                 </form
             </div>
         </div> 
+        <script src="database.js"></script>
+        <script src="search.js"></script>
     </body>
 </html>
