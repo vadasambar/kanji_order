@@ -11,14 +11,13 @@
     <body>
         <div id="outer-wrapper">
             <div id="middle-wrapper">
-                <form>
-                    <input id ="search-box" type="text" name="search-box" autofocus> 
-                    <input id="search-button" type="button" onClick="getPageNumber()" name="search-button" value="Search"> 
-                    <div id="results"></div>
-                </form
+                <input id ="search-box" type="text" name="search-box" 
+                       onkeypress="if(event.keyCode == 13) getPageNumber();" autofocus> 
+                <input id="search-button" type="button" onClick="getPageNumber()" name="search-button" value="Search"> 
+                <div id="results"></div>
             </div>
         </div> 
-        <script src="database.js"></script>
+        <script src="database.js"></script>x
         <script src="search.js"></script>
     </body>
 </html>
