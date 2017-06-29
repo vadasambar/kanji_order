@@ -14,12 +14,33 @@ body {
 
 #middle-wrapper {
     display: table-cell;
-    vertical-align: middle; 
+    padding-top: 40px; 
+    vertical-align: top; 
+    text-align: center; /* To center child elements*/
+}
+
+#description-wrapper {
+    display: inline-block; /* text-align affects inline-block */
+    text-align: left; 
+    margin-bottom: 20px; 
+}
+
+.description {
+    color: #AFAFAF; 
+    margin: 0 auto;
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+#shortcut {
+    border: 1px solid #AFAFAF;
+    padding: 0 4px; 
 }
 
 #search-box {    
     display: block;
     margin: auto; 
+    width: 40%; 
     padding: 7px; 
     font-size: 25px; 
     color: white; 
@@ -53,9 +74,11 @@ body {
 
 #results {
     margin-top: 20px; 
-    font-size: 25px;
+    font-size: 22px;
     font-family: sans-serif;  
-    color: white; 
+    color: #BFBFBF; 
     /* border: 2px solid white;  */
     text-align: center; 
 }
+
+
