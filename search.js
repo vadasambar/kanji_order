@@ -9,10 +9,10 @@ function getPageNumber(){
     document.getElementById("results").innerHTML = ""; // clean all text of previous search
     
     if(!isNaN (parseInt(kanjiList))){
-        searchByID(kanjiList); 
+        searchByID(kanjiList);  // if input is number id
   
     } else {
-        searchByKanji(kanjiList); 
+        searchByKanji(kanjiList); // if input is character
     }   
 
 }
