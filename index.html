@@ -11,8 +11,9 @@
         <div id="outer-wrapper">
             <div id="middle-wrapper">
 <!-- event.keyCode is deprecated but it is still supported across major browsers. Replace when there's a better alternative -->
-               <div id="description-wrapper"><ol class="description"><li> You can enter multiple kanjis at once.</li>
-                    <li>Use <span id="shortcut">Ctrl + s</span> to clear the search box and search again.</li></ol> </div>
+               <div id="description-wrapper"><ol class="description"><li> You can enter multiple kanjis at once. Try search by Id.</li>
+                    <li>Use <span id="shortcut">Ctrl + s</span> to clear the search box and search again.</li>
+                   </ol> </div>
                 <input id ="search-box" type="text" name="search-box" 
                        onkeypress="if(event.keyCode == 13) getPageNumber();" autofocus>  
                 <input id="search-button" type="button" onClick="getPageNumber()" name="search-button" value="Search"> 
