@@ -10,19 +10,11 @@ function getPageNumber(){
     
     if(!isNaN (parseInt(kanjiList))){
         searchByID(kanjiList);  // if input is number id
-    }
-
-    if(isLetter(kanjiList[0])){
-        searchByMeaning(kanjiList); // if input is character
-    }  
-    else {
-        searchByKanji(kanjiList); // if input is kanji
+  
+    } else {
+        searchByKanji(kanjiList); // if input is character
     }   
 
-}
-
-function isLetter(c) {
-  return c.toLowerCase() != c.toUpperCase();
 }
 
 function printResults (kanji){
@@ -51,14 +43,3 @@ function searchByKanji (kanjiList){
         }
     }
 }
-
-function searchByMeaning(kanjiList){
-    var name = kanjiList; 
-    for(var kanji in database){
-        if(name.toUpperCase() == database[kanji]["meaning"]){
-            printResults(kanji); 
-        }
-    }
-}
-
-
