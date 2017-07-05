@@ -22,7 +22,7 @@ function getPageNumber(){
 }
 
 function isLetter(c) {
-  return c.toLowerCase() != c.toUpperCase();
+    return c.toLowerCase() != c.toUpperCase();
 }
 
 function printResults (kanji){
@@ -55,8 +55,12 @@ function searchByKanji (kanjiList){
 function searchByMeaning(kanjiList){
     var name = kanjiList; 
     for(var kanji in database){
-        if(name.toUpperCase() == database[kanji]["meaning"]){
-            printResults(kanji); 
+        var meaningList = database[kanji]["meaning"].split(/,/); // store multiple meanings in an array
+        for(var index in meaningList){
+            meaning = meaningList[index].trim(); // remove white spaces before and after meaning
+            if(name.toUpperCase() == meaning){
+                printResults(kanji);
+            }
         }
     }
 }
