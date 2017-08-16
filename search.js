@@ -15,17 +15,20 @@ function getPageNumber(){
     if(isLetter(kanjiList[0])){
         searchByMeaning(kanjiList); // if input is character
     }  
-    else {
+    else{
         searchByKanji(kanjiList); // if input is kanji
     }   
 
 }
 
-function isLetter(c) {
+function isLetter(c){
     return c.toLowerCase() != c.toUpperCase();
 }
 
-function printResults (kanji){
+function printResults(kanji){
+    if(!database[kanji]){
+        return;
+    }
     document.getElementById("results").innerHTML += kanji + "<br>" 
                                                   + "page" + " : " + database[kanji]["page"] + "<br>"
                                                   + "id" + " : " + database[kanji]["id"] + "<br>"
@@ -33,22 +36,31 @@ function printResults (kanji){
 }
 
 function searchByID(kanjiList){
-    var id = kanjiList; 
+    var desiredKanjiIDs = kanjiList.split(" ");
+    desiredKanjiIDs.sort(compareIDs);
+    var largest = desiredKanjiIDs[desiredKanjiIDs.length-1];
+    var database_i = 1;
+    var arr_i = 0;
     for(var kanji in database){
-        if(id == database[kanji]["id"]){
-            printResults(kanji); 
+        if(database_i == desiredKanjiIDs[arr_i]){
+            printResults(kanji);
+            arr_i++;
         }
+        if(database_i>2300 || database_i>largest){
+            return;
+        }
+        database_i++;
     }
 }
 
-function searchByKanji (kanjiList){
+function compareIDs(a, b){
+    return a - b;
+}
+
+function searchByKanji(kanjiList){
     for (var i = 0; i < kanjiList.length; i++){
-        var kanji = kanjiList [i]; 
-        for (var prop in database){
-            if (prop == kanji){
-                printResults (kanji); 
-            }
-        }
+        var kanji = kanjiList[i]; 
+        printResults(kanji);
     }
 }
 
