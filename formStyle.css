@@ -1,14 +1,14 @@
 body {
     /*     background: #133D47; */
     background: #292B2A;
+    margin: 0;
 }
 
 #outer-wrapper {
     display: table; 
     position: absolute; 
     width: 100%;
-    height: 100%; 
-
+    height: 100%;
     /*     border: 2px dashed red;  */
 }    
 
