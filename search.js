@@ -11,49 +11,62 @@ function getPageNumber(){
   if(!isNaN (parseInt(kanjiList))){
     searchByID(kanjiList);  // if input is number id
   }
-
+  
   if(isLetter(kanjiList[0])){
     searchByMeaning(kanjiList); // if input is character
   }  
-  else {
+  else{
     searchByKanji(kanjiList); // if input is kanji
   }   
 
 }
 
-function isLetter(c) {
+function isLetter(c){
   return c.toLowerCase() != c.toUpperCase();
 }
 
-function printResults (kanji){
+function printResults(kanji){
+  if(!database[kanji]){
+    return;
+  }
+
   kanjiBlock = "<div id='kanji-block'><h2>" +  database[kanji]["page"] + "</h2>"                                                 
     + "<div id='character'>" + kanji + "</div>" 
-    // + "page" + " : " + database[kanji]["page"] + "<br>"
+  // + "page" + " : " + database[kanji]["page"] + "<br>"
     + "<div><span id='id'>" + database[kanji]["id"] + "</span></div>"
     + "<div id='meaning'>" + database[kanji]["meaning"] + "</div>"
     + "<div><a href='http://jisho.org/search/" + kanji + "%23kanji' target='_blank'>Jisho </a></div></div>";
 
-//  document.getElementById("character").innerHTML += kanji; 
+  //  document.getElementById("character").innerHTML += kanji; 
   document.getElementById("results").innerHTML += kanjiBlock; // append to 'results' for multiple kanjis 
+  
 }
 
 function searchByID(kanjiList){
-  var id = kanjiList; 
+  var desiredKanjiIDs = kanjiList.split(" ");
+  desiredKanjiIDs.sort(compareIDs);
+  var largest = desiredKanjiIDs[desiredKanjiIDs.length-1];
+  var database_i = 1;
+  var arr_i = 0;
   for(var kanji in database){
-    if(id == database[kanji]["id"]){
-      printResults(kanji); 
+    if(database_i == desiredKanjiIDs[arr_i]){
+      printResults(kanji);
+      arr_i++;       }
+    if(database_i>2300 || database_i>largest){
+      return;
     }
+    database_i++;
   }
 }
 
-function searchByKanji (kanjiList){
+function compareIDs(a, b){
+  return a - b;
+}        
+
+function searchByKanji(kanjiList){
   for (var i = 0; i < kanjiList.length; i++){
-    var kanji = kanjiList [i]; 
-    for (var prop in database){
-      if (prop == kanji){
-        printResults (kanji); 
-      }
-    }
+    var kanji = kanjiList[i]; 
+    printResults(kanji);
   }
 }
 
