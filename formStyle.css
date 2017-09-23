@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0; 
+}
+
 body {
     /*     background: #133D47; */
     background: #292B2A;
@@ -71,14 +76,41 @@ body {
     background: #33A6C4;
 }
 
-
-#results {
+#results, #kanji-block {
+    display: inline-block;  
+    margin: 0 20px; 
     margin-top: 20px; 
     font-size: 22px;
     font-family: sans-serif;  
     color: #BFBFBF; 
     /* border: 2px solid white;  */
     text-align: center; 
+}
+
+#kanji-block {
+    border: 1px dashed #BFBFBF;
+    margin: 5px; 
+    padding: 10px; 
+}
+
+h2 {
+    margin: 5px; 
+}
+
+#character {
+    /* display: inline-block; */
+    font-size: 50px;
+    margin-bottom: 5px; 
+}
+
+#id {
+    padding: 0 4px; 
+    border: 1px solid #BFBFBF;
+}
+
+#meaning {
+    /* display: inline-block; */
+    margin: 10px 0; 
 }
 
 
