@@ -30,7 +30,8 @@ function printResults (kanji){
     + "<div id='character'>" + kanji + "</div>" 
     // + "page" + " : " + database[kanji]["page"] + "<br>"
     + "<div><span id='id'>" + database[kanji]["id"] + "</span></div>"
-    + "<div id='meaning'>" + database[kanji]["meaning"] + "</div></div>";
+    + "<div id='meaning'>" + database[kanji]["meaning"] + "</div>"
+    + "<div><a href='http://jisho.org/search/" + kanji + "%23kanji' target='_blank'>Jisho </a></div></div>";
 
 //  document.getElementById("character").innerHTML += kanji; 
   document.getElementById("results").innerHTML += kanjiBlock; // append to 'results' for multiple kanjis 
