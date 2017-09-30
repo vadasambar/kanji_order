@@ -30,7 +30,7 @@ body {
 
 .description {
     color: #AFAFAF; 
-    margin: 0 auto;
+    margin: 0 5%; /* for mobile devices */
     font-family: sans-serif;
     line-height: 1.5;
 }
